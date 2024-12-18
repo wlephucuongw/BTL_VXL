@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "global.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,18 +97,35 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2);
+  status = INIT;
+  lcd_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+	SCH_Init();
+	SCH_Add_Task(getKeyInput, 0, 1);
+	SCH_Add_Task(fsm_automatic_run, 0, 1);
+	SCH_Add_Task(fsm_modify_run, 0, 1);
+	SCH_Add_Task(fsm_manual_run, 0, 1);
+
+
   while (1)
   {
-    /* USER CODE END WHILE */
+  //	if(timers[8].flag == 1){
+//  			HAL_GPIO_TogglePin(SIGNAL_TIMER_GPIO_Port, SIGNAL_TIMER_Pin);
+  			//setTimer(8, 1000);
+  	//}
+//  	  fsm_automatic_run();
+// 	  fsm_modify_run();
+// 	  fsm_manual_run();
+  	SCH_Dispatch_Tasks();
+  /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+  /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
+/* USER CODE END 3 */
 }
 
 /**
@@ -327,7 +344,11 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+	timerRun();
+//	getKeyInput();
+	SCH_Update();
+}
 /* USER CODE END 4 */
 
 /**
