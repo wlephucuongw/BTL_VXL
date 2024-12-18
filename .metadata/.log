@@ -1,0 +1,18 @@
+!SESSION 2024-12-18 11:06:17.864 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-12-18 11:06:34.363
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-12-18 11:06:34.453
+!MESSAGE Log4j initialized with config file E:\BTL_VXL\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-12-18 11:06:57.445
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-12-18 11:08:18.255
+!MESSAGE Indexed 'TRAFFIC LIGHT' (21 sources, 82 headers) in 4.7 sec: 6,169 declarations; 45,321 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0039%)
